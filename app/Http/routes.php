@@ -19,3 +19,9 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+// GET route
+Route::get('login', function() {
+    return View::make('login');
+});
+//POST route
+Route::post('login', 'AccountController@login');
