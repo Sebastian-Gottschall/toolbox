@@ -19,9 +19,6 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
-// GET route
-Route::get('login', function() {
-    return View::make('login');
-});
-//POST route
-Route::post('login', 'AccountController@login');
+Route::get('/auth/login', Config::get('auth.model') . 'Controller@getLogin');
+Route::post('/auth/login', Config::get('auth.model') . 'Controller@postLogin');
+Route::get('/auth/logout', Config::get('auth.model') . 'Controller@getLogout');
