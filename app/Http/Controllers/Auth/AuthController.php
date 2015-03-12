@@ -27,12 +27,47 @@ class AuthController extends Controller {
 	 * @param  \Illuminate\Contracts\Auth\Registrar  $registrar
 	 * @return void
 	 */
-	public function __construct(Guard $auth, Registrar $registrar)
-	{
+	public function __construct(Guard $auth, Registrar $registrar){
 		$this->auth = $auth;
 		$this->registrar = $registrar;
 
 		$this->middleware('guest', ['except' => 'getLogout']);
+	}
+
+	/**
+	 * Show the application login form.
+	 *
+	 * @return Response
+	 */
+	public function getLogin(){
+		return view('auth.login');
+	}
+
+	/**
+	 * Handle a login request to the application.
+	 *
+	 * @param  LoginRequest  $request
+	 * @return Response
+	 */
+	public function postLogin(LoginRequest $request){
+		if ($this->auth->attempt($request->only('email', 'password'))){
+			return redirect('/dash-board');
+		}
+
+		return redirect('/login')->withErrors([
+			'email' => 'The credentials you entered did not match our records. Try again?',
+		]);
+	}
+
+	/**
+	 * Log the user out of the application.
+	 *
+	 * @return Response
+	 */
+	public function getLogout(){
+		$this->auth->logout();
+
+		return redirect('/');
 	}
 
 }

@@ -9,7 +9,7 @@
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the controller to call when that URI is requested.
 |
-*/
+
 
 Route::get('/', 'WelcomeController@index');
 
@@ -19,6 +19,9 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
-Route::get('/auth/login', Config::get('auth.model') . 'Controller@getLogin');
-Route::post('/auth/login', Config::get('auth.model') . 'Controller@postLogin');
-Route::get('/auth/logout', Config::get('auth.model') . 'Controller@getLogout');
+*/
+
+Route::get('/',['as'=>'home','uses'=>'HomeController@index']);
+Route::get('/dashboard',['as'=>'dash-board','uses'=>"DashBoardController@index"]);
+
+Route::controller('/','Auth\AuthController');
