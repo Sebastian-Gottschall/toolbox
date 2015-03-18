@@ -2,6 +2,6 @@
 
 composer self-update
 composer update
->> configure the .env file or the config/database.php (2nd fallback settings) file
+>> copy the .env.example to .env file and end edit it (or the config/database.php file)
 php artisan migrate
 php artisan db:seed
