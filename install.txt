@@ -1,0 +1,7 @@
+[initialize project]
+
+composer self-update
+composer update
+>> configure the .env file or the config/database.php (2nd fallback settings) file
+php artisan migrate
+php artisan db:seed
