@@ -24,4 +24,4 @@ Route::controllers([
 Route::get('/',['as'=>'home','uses'=>'HomeController@index']);
 Route::get('/dashboard',['as'=>'dash-board','uses'=>"DashBoardController@index"]);
 
-Route::controller('/','Auth\AuthController');
+Route::controller('auth','Auth\AuthController');
