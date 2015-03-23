@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller {
 
@@ -49,7 +50,7 @@ class AuthController extends Controller {
 	 * @param  LoginRequest  $request
 	 * @return Response
 	 */
-	public function postLogin(LoginRequest $request){
+	public function postLogin(Request $request){
 		if ($this->auth->attempt($request->only('email', 'password'))){
 			return redirect('/dash-board');
 		}

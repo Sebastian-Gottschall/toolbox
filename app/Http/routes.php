@@ -21,7 +21,8 @@ Route::controllers([
 ]);
 */
 
-Route::get('/',['as'=>'home','uses'=>'HomeController@index']);
+Route::get('/home',['as'=>'home','uses'=>'HomeController@index']);
 Route::get('/dashboard',['as'=>'dash-board','uses'=>"DashBoardController@index"]);
+Route::get('/','WelcomeController@index');
 
 Route::controller('auth','Auth\AuthController');
