@@ -22,7 +22,7 @@ Route::controllers([
 */
 
 Route::get('/home',['as'=>'home','uses'=>'HomeController@index']);
-Route::get('/dashboard',['as'=>'dash-board','uses'=>"DashBoardController@index"]);
+Route::get('/dashboard',['as'=>'dashboard','uses'=>"DashBoardController@index"]);
 Route::get('/','WelcomeController@index');
 
 Route::controller('auth','Auth\AuthController');
