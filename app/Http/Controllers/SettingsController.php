@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class favouriteController extends Controller {
+class SettingsController extends Controller {
 
 	/**
 	 * Create a new controller instance.
@@ -23,7 +23,7 @@ class favouriteController extends Controller {
 	 */
 	public function index()
 	{
-		return view('favourite');
+		return view('settings');
 	}
 
 	/**

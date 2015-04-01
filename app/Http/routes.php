@@ -23,6 +23,11 @@ Route::controllers([
 
 Route::get('/home',['as'=>'home','uses'=>'HomeController@index']);
 Route::get('/dashboard',['as'=>'dashboard','uses'=>"DashBoardController@index"]);
+Route::get('/favourites',['as'=>'favourites','uses'=>"favouriteController@index"]);
+Route::get('/settings',['as'=>'settings','uses'=>"SettingsController@index"]);
+Route::get('/contents',['as'=>'contents','uses'=>"ContentController@index"]);
+Route::get('/contentgroups',['as'=>'contentgroups','uses'=>"ContentGroupController@index"]);
+Route::get('/users',['as'=>'users','uses'=>"UserController@index"]);
 Route::get('/','WelcomeController@index');
 
 Route::controller('auth','Auth\AuthController');

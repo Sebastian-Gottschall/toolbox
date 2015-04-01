@@ -52,10 +52,10 @@ class AuthController extends Controller {
 	 */
 	public function postLogin(Request $request){
 		if ($this->auth->attempt($request->only('email', 'password'))){
-			return redirect('/dash-board');
+			return redirect('/dashboard');
 		}
 
-		return redirect('/login')->withErrors([
+		return redirect('/auth/login')->withErrors([
 			'email' => 'The credentials you entered did not match our records. Try again?',
 		]);
 	}
